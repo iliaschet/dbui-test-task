@@ -6,15 +6,18 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { Dashboard } from "./pages/Dashboard";
-import { Testtask } from "./pages/Testtask";
+import { Task } from "./pages/Task";
 
+const ROUTES = {
+  TASK: "/task",
+} as const;
 function App() {
   return (
     <Router>
       <AppTopBar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/testtask" element={<Testtask />} />
+        <Route path={ROUTES.TASK} element={<Task />} />
       </Routes>
     </Router>
   );

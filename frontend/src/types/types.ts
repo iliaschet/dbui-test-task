@@ -5,3 +5,12 @@ export type Person = {
   country: string;
   online: boolean;
 };
+
+export interface Column {
+  field: string;
+  headerName: string;
+  width?: number;
+  type?: string;
+  float?: string;
+  border?: string;
+}

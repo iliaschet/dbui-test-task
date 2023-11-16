@@ -1,28 +1,16 @@
 import * as React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import type { Person } from "../../types/types";
+import type { Person, Column } from "../../types/types";
 import { v4 as uuidv4 } from "uuid";
 
-interface IGridTableInterface {
+interface IGridTableProps {
   data?: Person[];
   loading: boolean;
+  columns: Column[];
 }
 
-export default function GridTable({ data, loading }: IGridTableInterface) {
-  const dataWithId = data?.map((row) => ({ id: uuidv4(), ...row }));
-  const columns = [
-    { field: "name", headerName: "Name", width: 237 },
-    { field: "phone", headerName: "Phone", width: 237 },
-    { field: "email", headerName: "Email", width: 237 },
-    { field: "country", headerName: "Country", width: 207 },
-    {
-      field: "online",
-      headerName: "Online",
-      type: "boolean",
-      float: "left",
-      border: "solid 1px",
-    },
-  ];
+export default function GridTable(props: IGridTableProps) {
+  const dataWithId = props.data?.map((row) => ({ id: uuidv4(), ...row }));
 
   return (
     <DataGrid
@@ -62,8 +50,8 @@ export default function GridTable({ data, loading }: IGridTableInterface) {
         },
       }}
       rows={dataWithId || []}
-      columns={columns}
-      loading={loading}
+      columns={props.columns}
+      loading={props.loading}
       slots={{ toolbar: GridToolbar }}
       slotProps={{
         toolbar: {
