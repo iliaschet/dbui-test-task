@@ -1,0 +1,14 @@
+.star-icon{
+    margin-top: 30px;
+    margin-left: 16px;
+}
+.data-grid{
+    padding: 16px;
+}
+.text-wrapper{
+    margin-top: 16px;
+}
+.title-wrapper{
+    display: flex;
+    gap: 16px;
+}
