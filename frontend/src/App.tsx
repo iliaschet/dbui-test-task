@@ -7,14 +7,29 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { Container } from "@mui/material";
 import { Dashboard } from "./pages/Dashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { TestTasks } from "./pages/TestTasks";
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-      <AppTopBar />
-      <Container maxWidth="xl" sx={{ mt: "100px" }}>
-        <Dashboard />
-      </Container>
+      <BrowserRouter>
+        <AppTopBar />
+        <Container
+          maxWidth="xl"
+          sx={{
+            mt: "100px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/test-tasks" element={<TestTasks />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </StyledEngineProvider>
   );
 }
