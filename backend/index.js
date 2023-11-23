@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 const BASE_PATH = "/api/v1";
-const PORT = 5000;
+const PORT = 3001;
 
 app.get(`${BASE_PATH}/list`, function (req, res) {
   res.send([
