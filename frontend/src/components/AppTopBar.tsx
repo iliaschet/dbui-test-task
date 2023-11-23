@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export const AppTopBar = () => {
   return (
@@ -22,14 +23,20 @@ export const AppTopBar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1, display: "flex" }}>
             <Button
-              onClick={() => {
-                console.log("123");
-              }}
+              component={Link}
+              to="/"
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Dashboard
+            </Button>
+            <Button
+              component={Link}
+              to="Test-task"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Test-task
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
