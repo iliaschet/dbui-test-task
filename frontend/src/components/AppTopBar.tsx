@@ -6,8 +6,19 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export const AppTopBar = () => {
+  const navigate = useNavigate();
+
+  const handleDashboardClick = () => {
+    navigate("/");
+  };
+
+  const handleTableClick = () => {
+    navigate("/test-task", { replace: true });
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -22,14 +33,18 @@ export const AppTopBar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1, display: "flex" }}>
             <Button
-              onClick={() => {
-                console.log("123");
-              }}
+              onClick={handleDashboardClick}
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Dashboard
+            </Button>
+            <Button
+              onClick={handleTableClick}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Test-tasks
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
