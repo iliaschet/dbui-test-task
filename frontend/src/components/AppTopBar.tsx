@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export const AppTopBar = () => {
+  const navigate = useNavigate();
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -22,18 +24,26 @@ export const AppTopBar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1, display: "flex", gap: "16px" }}>
             <Button
               onClick={() => {
-                console.log("123");
+                navigate("/");
               }}
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Dashboard
             </Button>
+            <Button
+              onClick={() => {
+                navigate("/test-tasks");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Test-tasks
+            </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Avatar alt="Remy Sharp" src="/static/2.jpg" />
+            <Avatar alt="Remy Sharp" src="/static/avatar.jpeg" />
           </Box>
         </Toolbar>
       </Container>
